@@ -1,7 +1,7 @@
 {
   "name": "ZFrame",
   "version": "1.0.0",
-  "description": "<!--\r  * @Author: Brightness\r  * @Date: 2021-04-09 13:33:15\r  * @LastEditors: Brightness\r  * @LastEditTime: 2021-04-09 13:33:38\r  * @Description:\r -->",
+  "description": "基于koa 框架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,17 @@
     "url": "git+https://github.com/brightness2/ZFrame.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Brightness",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/brightness2/ZFrame/issues"
   },
-  "homepage": "https://github.com/brightness2/ZFrame#readme"
+  "homepage": "https://github.com/brightness2/ZFrame#readme",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "require-directory": "^2.1.1"
+  }
 }
