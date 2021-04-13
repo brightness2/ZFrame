@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:11:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-09 17:31:15
+ * @LastEditTime: 2021-04-12 09:59:04
  * @Description: 初始化类
  */
 //引入依赖
@@ -19,7 +19,9 @@ class InitManager {
     InitManager.loadConfig();
     InitManager.loadHttpException();
     InitManager.useMiddleware(bodyparser());
-    InitManager.useMiddleware(koaStatic(process.cwd() + "/static"));
+    InitManager.useMiddleware(
+      koaStatic(process.cwd() + "/" + config.staticDir)
+    );
     InitManager.autoLoadRouter();
   }
 
@@ -46,7 +48,7 @@ class InitManager {
    * 自动加载路由
    */
   static autoLoadRouter() {
-    const routerPath = global.config.routerDir;
+    const routerPath = config.routerDir;
     const mainRouter = new Router();
     mainRouter.get("/", (ctx, next) => {
       ctx.body = "<h1>Welcome to ZFrame</h1>";
@@ -66,9 +68,9 @@ class InitManager {
    */
   static loadHttpException() {
     const catchError = require("./exception");
-    const BusinessError = require("./BusinessError");
+    const errors = require("./HttpExceptions");
     global.catchError = catchError;
-    global.ZError = BusinessError;
+    global.errors = errors;
     InitManager.app.use(catchError);
   }
 }
