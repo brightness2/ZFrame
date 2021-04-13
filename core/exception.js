@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 16:47:01
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 09:54:38
+ * @LastEditTime: 2021-04-13 16:25:57
  * @Description:异常中间件 捕获全局异常
  */
 const { BusinessError } = require("./HttpExceptions");

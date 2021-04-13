@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/brightness2/ZFrame#readme",
   "dependencies": {
+    "knex": "^0.95.4",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "koa-static": "^5.0.0",
     "lodash": "^4.17.21",
+    "mysql2": "^2.2.5",
     "require-directory": "^2.1.1",
     "validator": "^13.5.2"
   }

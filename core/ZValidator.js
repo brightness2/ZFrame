@@ -1,6 +1,7 @@
 /**
  * 参考 Lin-Validator v2
  * 参数名称不能相同
+ *
  */
 
 const validator = require("validator");
@@ -180,6 +181,7 @@ class RuleFieldResult extends RuleResult {
 }
 
 class Rule {
+  //具体内置校验方法查看validator 文档 https://www.npmjs.com/package/validator
   constructor(name, msg, ...params) {
     Object.assign(this, {
       name,

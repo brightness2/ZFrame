@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 16:52:40
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 11:42:18
+ * @LastEditTime: 2021-04-13 15:44:49
  * @Description:业务异常类，自定义异常
  */
 class BusinessError extends Error {
@@ -20,7 +20,14 @@ class ParameterException extends BusinessError {
   }
 }
 
+class ZDbobjException extends BusinessError {
+  constructor(msg = "数据库出错", errorCode = -1, code = 200) {
+    super(msg, errorCode, code);
+  }
+}
+
 module.exports = {
   BusinessError,
   ParameterException,
+  ZDbobjException,
 };
