@@ -2,9 +2,11 @@
  * @Author: Brightness
  * @Date: 2021-04-13 10:07:05
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 10:12:48
+ * @LastEditTime: 2021-04-15 08:56:08
  * @Description: 工具集
  */
+const jwt = require("jsonwebtoken");
+
 const findAttr = (instance, { prefix, specifiedType, filter }) => {
   // 递归函数
   function _find(instance) {
@@ -34,6 +36,19 @@ const findAttr = (instance, { prefix, specifiedType, filter }) => {
   return _find(instance);
 };
 
+/**
+ * 生成token
+ * @param {*} uid
+ * @param {*} scope
+ * @returns
+ */
+const genToken = (uid, scope) => {
+  const { secretKey, expiresIn } = global.config.security;
+  let token = jwt.sign({ uid, scope }, secretKey, { expiresIn });
+  return token;
+};
+
 module.exports = {
   findAttr,
+  genToken,
 };

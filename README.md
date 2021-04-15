@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 17:01:07
+ * @LastEditTime: 2021-04-15 17:41:31
  * @Description:
 -->
 
@@ -29,7 +29,11 @@ middleware
 
 ## 增加中间件
 
-middleware/BaseObj.js 继承 ZDbobj 类，扩展了异常处理
+lib/BaseObj.js 继承 ZDbobj 类，扩展了异常处理
+middleware/Auth.js token 校验拦截 依赖 jsonwebtoken 生成 jwt, basic-auth 获取 http basic auth 的 name （token） 参数
+简单的权限校验，通过比较数值大小，用户的权限数值与接口权限数值比较，用户的权限数值 < 接口权限数值 无法访问
+
+推荐 RBAC
 
 ## 路由文件夹
 

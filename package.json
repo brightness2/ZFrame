@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/brightness2/ZFrame#readme",
   "dependencies": {
+    "basic-auth": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.4",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",

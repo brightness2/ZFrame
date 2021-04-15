@@ -2,11 +2,11 @@
  * @Author: Brightness
  * @Date: 2021-04-13 14:34:37
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 16:57:58
+ * @LastEditTime: 2021-04-15 16:43:16
  * @Description:ZDbobj 使用
  */
 
-const BaseObj = require("../../middleware/BaseObj");
+const BaseObj = require("../../lib/BaseObj");
 
 class AdminObj extends BaseObj {
   constructor() {

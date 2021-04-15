@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 16:47:01
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 16:25:57
+ * @LastEditTime: 2021-04-15 09:30:52
  * @Description:异常中间件 捕获全局异常
  */
 const { BusinessError } = require("./HttpExceptions");
@@ -16,7 +16,7 @@ const catchError = async (ctx, next) => {
         code: e.errorCode,
         msg: e.msg,
         request: `${ctx.method} ${ctx.path}`,
-        data: [],
+        data: e.data,
       };
       ctx.status = e.code;
     } else {

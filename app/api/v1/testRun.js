@@ -2,12 +2,17 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-13 16:58:22
+ * @LastEditTime: 2021-04-15 17:38:52
  * @Description:
  */
 const Router = require("koa-router");
 const TestValidator = require("../../validators/testValidator");
 const { AdminObj } = require("../../dbobj/dbobj");
+const { returnSuccess, returnData } = require("../../../lib/helper");
+const { genToken } = require("../../../core/util");
+const { Auth } = require("../../../middleware/Auth");
+const apiLevel = require("../../../config/apiLevel");
+
 const router = new Router();
 ///////////////////////
 router.get("/test1/:t", (ctx, next) => {
@@ -42,6 +47,7 @@ router.post("/test2", async (ctx, next) => {
   // let id = v.get("path.ids");//path
   // let id = v.get("header.ids");//header
   ctx.body = id;
+  returnSuccess("校验通过");
 });
 ///////////////////////////////
 router.get("/test3", async (ctx, next) => {
@@ -53,7 +59,21 @@ router.get("/test3", async (ctx, next) => {
   // console.log(list);
   ctx.body = list;
 });
-
+////////////////////////////
+router.get("/test4", (ctx, next) => {
+  let token = genToken(1, Auth.USER);
+  returnData(ctx, token);
+});
+///////////////////////
+// token 校验
+router.get("/test5", new Auth().m, (ctx, next) => {
+  ctx.body = ctx.auth;
+});
+///////////////////////////
+// 权限校验
+router.get("/test6", new Auth(apiLevel.admin).m, (ctx, next) => {
+  ctx.body = "test6";
+});
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";
 module.exports = router;
