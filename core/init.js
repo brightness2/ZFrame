@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:11:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-12 09:59:04
+ * @LastEditTime: 2021-04-19 17:41:06
  * @Description: 初始化类
  */
 //引入依赖
@@ -10,6 +10,7 @@ const bodyparser = require("koa-bodyparser");
 const koaStatic = require("koa-static");
 const Router = require("koa-router");
 const requireDirectory = require("require-directory");
+const { accessLogger } = require("../logger/index");
 /**
  * 初始化类
  */
@@ -18,6 +19,7 @@ class InitManager {
     InitManager.app = app;
     InitManager.loadConfig();
     InitManager.loadHttpException();
+    InitManager.useMiddleware(accessLogger());
     InitManager.useMiddleware(bodyparser());
     InitManager.useMiddleware(
       koaStatic(process.cwd() + "/" + config.staticDir)

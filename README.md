@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-16 14:36:19
+ * @LastEditTime: 2021-04-19 17:57:25
  * @Description:
 -->
 
@@ -58,6 +58,10 @@ index.js
 
 ## 权限校验需要完善
 
-## 还差日志功能，缓存功能
+## 日志功能
+
+koa-log4
+
+## 还差，缓存功能
 
 ## 模板功能将 提交到新的分支上

@@ -2,10 +2,11 @@
  * @Author: Brightness
  * @Date: 2021-04-09 16:47:01
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 16:10:21
+ * @LastEditTime: 2021-04-19 17:42:50
  * @Description:异常中间件 捕获全局异常
  */
 const { BusinessError } = require("./HttpExceptions");
+const { logger } = require("../logger/index");
 const catchError = async (ctx, next) => {
   try {
     await next();
@@ -26,6 +27,7 @@ const catchError = async (ctx, next) => {
       ctx.body = obj;
       ctx.status = e.code;
     } else {
+      logger.error(e);
       if (global.config.env.toLowerCase() == "dev") {
         throw e;
       }

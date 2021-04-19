@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 16:23:01
+ * @LastEditTime: 2021-04-19 17:54:13
  * @Description:
  */
 const Router = require("koa-router");
@@ -14,6 +14,7 @@ const { Auth } = require("../../../middleware/Auth");
 const apiLevel = require("../../../config/apiLevel");
 const { Admin } = require("../../model/Admin");
 const Jwt = require("../../../core/jwt");
+const { logger, accessLogger } = require("../../../logger");
 
 const router = new Router();
 ///////////////////////
@@ -91,7 +92,12 @@ router.get("/test8", async (ctx, next) => {
   returnData(ctx, row);
 });
 ///////////////////////
-
+//日志使用
+router.get("/test9", (ctx, next) => {
+  logger.info("logger info test");
+  logger.warn("logger warn test");
+  logger.error("logger error test");
+});
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";
 module.exports = router;
