@@ -2,11 +2,11 @@
  * @Author: Brightness
  * @Date: 2021-04-13 10:07:05
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-15 08:56:08
+ * @LastEditTime: 2021-04-19 16:11:18
  * @Description: 工具集
  */
 const jwt = require("jsonwebtoken");
-
+const { Base64 } = require("js-base64");
 const findAttr = (instance, { prefix, specifiedType, filter }) => {
   // 递归函数
   function _find(instance) {
@@ -37,18 +37,19 @@ const findAttr = (instance, { prefix, specifiedType, filter }) => {
 };
 
 /**
- * 生成token
- * @param {*} uid
- * @param {*} scope
+ * Authorization 加密
+ * @param {*} token
  * @returns
  */
-const genToken = (uid, scope) => {
-  const { secretKey, expiresIn } = global.config.security;
-  let token = jwt.sign({ uid, scope }, secretKey, { expiresIn });
-  return token;
+const basicAuthEncode = (str) => {
+  //http 支持 Authorization，通过此传递token更安全,扩展知识，主要用于前端
+  //basic-auth 加密 依赖 js-base64
+  //Authorization格式 ：Basic base64(account:password)
+  str = Base64.encode(str + ":");
+  return "Basic " + str; //主要 Basic 后有一个空格
 };
 
 module.exports = {
   findAttr,
-  genToken,
+  basicAuthEncode,
 };

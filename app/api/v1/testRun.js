@@ -2,16 +2,18 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-15 17:38:52
+ * @LastEditTime: 2021-04-19 16:23:01
  * @Description:
  */
 const Router = require("koa-router");
 const TestValidator = require("../../validators/testValidator");
 const { AdminObj } = require("../../dbobj/dbobj");
 const { returnSuccess, returnData } = require("../../../lib/helper");
-const { genToken } = require("../../../core/util");
+const { basicAuthEncode } = require("../../../core/util");
 const { Auth } = require("../../../middleware/Auth");
 const apiLevel = require("../../../config/apiLevel");
+const { Admin } = require("../../model/Admin");
+const Jwt = require("../../../core/jwt");
 
 const router = new Router();
 ///////////////////////
@@ -51,7 +53,7 @@ router.post("/test2", async (ctx, next) => {
 });
 ///////////////////////////////
 router.get("/test3", async (ctx, next) => {
-  //数据库操作
+  //使用ZDbobj 进行数据库操作
 
   let adminObj = new AdminObj();
   adminObj.addParams({ name: "h" });
@@ -61,19 +63,35 @@ router.get("/test3", async (ctx, next) => {
 });
 ////////////////////////////
 router.get("/test4", (ctx, next) => {
-  let token = genToken(1, Auth.USER);
+  let token = Jwt.genToken(1, Auth.USER);
   returnData(ctx, token);
 });
 ///////////////////////
 // token 校验
 router.get("/test5", new Auth().m, (ctx, next) => {
-  ctx.body = ctx.auth;
+  returnData(ctx, ctx.auth);
 });
 ///////////////////////////
 // 权限校验
 router.get("/test6", new Auth(apiLevel.admin).m, (ctx, next) => {
   ctx.body = "test6";
 });
+///////////////
+//Authorization 加密
+router.get("/test7", (ctx, next) => {
+  ctx.body = basicAuthEncode("jkdjfkdkfdk");
+});
+
+/////////////
+//model 获取数据
+router.get("/test8", async (ctx, next) => {
+  let rows = await Admin.fetchAll();
+  let row = await new Admin({ id: 1 }).fetch();
+  row = await new Admin().where("id", ">", 1).fetch();
+  returnData(ctx, row);
+});
+///////////////////////
+
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";
 module.exports = router;

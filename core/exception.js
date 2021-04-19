@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 16:47:01
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-15 09:30:52
+ * @LastEditTime: 2021-04-19 16:10:21
  * @Description:异常中间件 捕获全局异常
  */
 const { BusinessError } = require("./HttpExceptions");
@@ -12,12 +12,18 @@ const catchError = async (ctx, next) => {
   } catch (e) {
     // 进行异常的处理
     if (e instanceof BusinessError) {
-      ctx.body = {
+      let obj = {
         code: e.errorCode,
         msg: e.msg,
         request: `${ctx.method} ${ctx.path}`,
         data: e.data,
       };
+      //存在新token则赋值输出
+      if (ctx.newToken) {
+        obj.newToken = ctx.newToken;
+        ctx.newToken = "";
+      }
+      ctx.body = obj;
       ctx.status = e.code;
     } else {
       if (global.config.env.toLowerCase() == "dev") {
