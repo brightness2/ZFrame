@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 17:54:13
+ * @LastEditTime: 2021-04-20 11:42:10
  * @Description:
  */
 const Router = require("koa-router");
@@ -15,6 +15,7 @@ const apiLevel = require("../../../config/apiLevel");
 const { Admin } = require("../../model/Admin");
 const Jwt = require("../../../core/jwt");
 const { logger, accessLogger } = require("../../../logger");
+const { FileCache } = require("../../../lib/FileCache");
 
 const router = new Router();
 ///////////////////////
@@ -97,6 +98,19 @@ router.get("/test9", (ctx, next) => {
   logger.info("logger info test");
   logger.warn("logger warn test");
   logger.error("logger error test");
+});
+///////////////////////////
+//文件缓存
+router.get("/test10", (ctx, next) => {
+  let cache = new FileCache(22);
+  // cache.set("test", [1, { a: "dd" }]); //设置缓存
+  let data = cache.get("test"); //获取缓存
+  // let res = cache.delete("key");//删除缓存
+  // if (false === res) {
+  //   logger.warn("缓存删除失败");
+  //   console.warn("缓存删除失败");
+  // }
+  ctx.body = data;
 });
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";

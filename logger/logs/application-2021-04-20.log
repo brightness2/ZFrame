@@ -1,0 +1,117 @@
+[2021-04-20T09:30:25.346] [ERROR] application - ReferenceError: _checkDir is not defined
+    at FileCache.set (F:\ZFrame\lib\FileCache.js:22:5)
+    at F:\ZFrame\app\api\v1\testRun.js:106:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T10:54:01.651] [ERROR] application - Error: ENOENT: no such file or directory, open 'F:\ZFrame\runtime\cache\test.txt'
+    at Object.openSync (fs.js:476:3)
+    at Object.readFileSync (fs.js:377:35)
+    at FileCache.get (F:\ZFrame\lib\FileCache.js:45:19)
+    at F:\ZFrame\app\api\v1\testRun.js:107:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'F:\\ZFrame\\runtime\\cache\\test.txt'
+}
+[2021-04-20T10:54:46.919] [ERROR] application - SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at FileCache._decode (F:\ZFrame\lib\FileCache.js:102:18)
+    at FileCache.get (F:\ZFrame\lib\FileCache.js:47:28)
+    at F:\ZFrame\app\api\v1\testRun.js:107:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T10:56:49.395] [ERROR] application - SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at FileCache._decode (F:\ZFrame\lib\FileCache.js:102:18)
+    at FileCache.get (F:\ZFrame\lib\FileCache.js:47:28)
+    at F:\ZFrame\app\api\v1\testRun.js:107:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T11:08:44.693] [ERROR] application - SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at FileCache._decode (F:\ZFrame\lib\FileCache.js:102:18)
+    at FileCache.get (F:\ZFrame\lib\FileCache.js:47:28)
+    at F:\ZFrame\app\api\v1\testRun.js:107:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T11:09:21.621] [ERROR] application - ReferenceError: data is not defined
+    at F:\ZFrame\app\api\v1\testRun.js:113:14
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T11:11:07.604] [ERROR] application - ReferenceError: data is not defined
+    at F:\ZFrame\app\api\v1\testRun.js:113:14
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)
+[2021-04-20T11:23:26.777] [ERROR] application - SyntaxError: Unexpected token { in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at FileCache._decode (F:\ZFrame\lib\FileCache.js:111:18)
+    at FileCache.get (F:\ZFrame\lib\FileCache.js:54:28)
+    at F:\ZFrame\app\api\v1\testRun.js:107:20
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at F:\ZFrame\node_modules\koa-compose\index.js:34:12
+    at dispatch (F:\ZFrame\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (F:\ZFrame\node_modules\koa-compose\index.js:42:32)
+    at serve (F:\ZFrame\node_modules\koa-static\index.js:53:15)
+    at async bodyParser (F:\ZFrame\node_modules\koa-bodyparser\index.js:95:5)
+    at async F:\ZFrame\node_modules\koa-log4\koa-logger.js:86:7
+    at async catchError (F:\ZFrame\core\exception.js:12:5)

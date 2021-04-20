@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:11:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 17:41:06
+ * @LastEditTime: 2021-04-20 11:59:15
  * @Description: 初始化类
  */
 //引入依赖
@@ -10,7 +10,9 @@ const bodyparser = require("koa-bodyparser");
 const koaStatic = require("koa-static");
 const Router = require("koa-router");
 const requireDirectory = require("require-directory");
+const path = require("path");
 const { accessLogger } = require("../logger/index");
+
 /**
  * 初始化类
  */
@@ -22,17 +24,17 @@ class InitManager {
     InitManager.useMiddleware(accessLogger());
     InitManager.useMiddleware(bodyparser());
     InitManager.useMiddleware(
-      koaStatic(process.cwd() + "/" + config.staticDir)
+      koaStatic(process.cwd() + path.sep + config.staticDir)
     );
     InitManager.autoLoadRouter();
   }
 
   /**
    * 加载配置文件
-   * @param {*} path
+   * @param {*} cfgPath
    */
-  static loadConfig(path = "") {
-    const configPath = path || process.cwd() + "/config/config.js";
+  static loadConfig(cfgPath = "") {
+    const configPath = cfgPath || path.join(process.cwd(), "/config/config.js");
     const config = require(configPath);
     global.config = config;
   }

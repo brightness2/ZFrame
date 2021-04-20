@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 17:57:25
+ * @LastEditTime: 2021-04-20 12:15:26
  * @Description:
 -->
 
@@ -31,7 +31,7 @@ middleware
 
 middleware/Auth.js token 校验拦截 依赖 jsonwebtoken 生成 jwt, basic-auth 获取 http basic auth 的 name （token） 参数
 简单的权限校验，通过比较数值大小，用户的权限数值与接口权限数值比较，用户的权限数值 < 接口权限数值 无法访问
-未做无感刷新 token,可以使用双令牌使用
+无感刷新 token,通过判断是否达到刷新时间实现
 
 推荐 RBAC
 
@@ -62,6 +62,8 @@ index.js
 
 koa-log4
 
-## 还差，缓存功能
+## 缓存功能
+
+lib/FileCache.js
 
 ## 模板功能将 提交到新的分支上
