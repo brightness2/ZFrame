@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 12:15:26
+ * @LastEditTime: 2021-04-22 17:35:22
  * @Description:
 -->
 
@@ -66,4 +66,6 @@ koa-log4
 
 lib/FileCache.js
 
-## 模板功能将 提交到新的分支上
+## koa-body 替换 koa-bodyparser
+
+koa-body 可以接收文件,

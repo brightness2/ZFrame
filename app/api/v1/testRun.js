@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 11:42:10
+ * @LastEditTime: 2021-04-22 17:50:59
  * @Description:
  */
 const Router = require("koa-router");
@@ -112,6 +112,16 @@ router.get("/test10", (ctx, next) => {
   // }
   ctx.body = data;
 });
+
+///////////////////////////////
+//文件上传
+router.post("/test11", async (ctx, next) => {
+  // console.log(ctx.request.body);
+  let files = ctx.request.files;
+  console.log(files);
+  ctx.body = "ok";
+});
+
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";
 module.exports = router;

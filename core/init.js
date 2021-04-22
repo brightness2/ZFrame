@@ -2,11 +2,11 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:11:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 11:59:15
+ * @LastEditTime: 2021-04-22 17:47:51
  * @Description: 初始化类
  */
 //引入依赖
-const bodyparser = require("koa-bodyparser");
+const koaBody = require("koa-body");
 const koaStatic = require("koa-static");
 const Router = require("koa-router");
 const requireDirectory = require("require-directory");
@@ -22,7 +22,14 @@ class InitManager {
     InitManager.loadConfig();
     InitManager.loadHttpException();
     InitManager.useMiddleware(accessLogger());
-    InitManager.useMiddleware(bodyparser());
+    InitManager.useMiddleware(
+      koaBody({
+        multipart: true,
+        formidable: {
+          maxFileSize: 200 * 1024 * 1024, // 设置上传文件大小最大限制，默认2M
+        },
+      })
+    );
     InitManager.useMiddleware(
       koaStatic(process.cwd() + path.sep + config.staticDir)
     );
