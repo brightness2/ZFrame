@@ -31,6 +31,8 @@
     "lodash": "^4.17.21",
     "mysql2": "^2.2.5",
     "require-directory": "^2.1.1",
-    "validator": "^13.5.2"
+    "validator": "^13.5.2",
+    "xtemplate": "^5.0.10",
+    "xtpl": "^3.4.2"
   }
 }

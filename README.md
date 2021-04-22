@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 12:48:53
+ * @LastEditTime: 2021-04-22 14:36:04
  * @Description:
 -->
 
@@ -66,6 +66,7 @@ koa-log4
 
 lib/FileCache.js
 
-## 模板功能将
+## 模板功能
 
 增加模板功能
+使用 xtemplate

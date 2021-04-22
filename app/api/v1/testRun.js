@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 11:42:10
+ * @LastEditTime: 2021-04-22 14:49:50
  * @Description:
  */
 const Router = require("koa-router");
@@ -111,6 +111,11 @@ router.get("/test10", (ctx, next) => {
   //   console.warn("缓存删除失败");
   // }
   ctx.body = data;
+});
+//使用模板
+router.get("/test11", async (ctx, next) => {
+  let data = { user: { username: "Brightness", arr: [1, 2] } };
+  await ctx.render("test", data);
 });
 let arr = __dirname.split(config.pathSep);
 router.prefix = arr[arr.length - 1] + "/testRun";

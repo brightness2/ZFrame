@@ -1,0 +1,70 @@
+<!--
+ * @Author: Brightness
+ * @Date: 2021-04-22 11:57:01
+ * @LastEditors: Brightness
+ * @LastEditTime: 2021-04-22 14:22:25
+ * @Description:  
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{! xtemplate 的使用，注释 }}
+    {{%
+
+        {{user}}
+        
+    %}}
+    <br>
+    {{{ user }}}
+
+    <h2>{{user.username}}</h2>
+
+    <!-- 声明变量 -->
+    {{set(bool=true,arr=[1,2])}}
+
+   <!-- if -->
+    {{#if(bool)}}
+        真
+    {{else}}
+        假
+    {{/if}}
+    <br>
+    <!-- 迭代 -->
+    {{#each(user.arr)}}
+         {{this}}
+    {{/each}}
+<br>
+    <!-- 宏
+
+宏允许你定义一个可复用的代码片段，和 javascript 中的函数有点类似，下面是一个例子 -->
+{{#macro("test","param", default=1)}}
+    param is {{param}} {{default}}
+{{/macro}}
+
+{{macro("test","2")}}
+<br>
+{{macro("test", "2", default=2)}}
+
+<!-- include
+
+include 引入其他的模板。它在你想要共享不同的小的区块时非常有用。 -->
+{{ include ("./child") }}
+
+<!-- 模板继承
+
+模板继承可以让你更容易的来复用模板。当编写一个 template 的时候，你可以定义 blocks，这样在子模板中可以重写掉这些 block。
+
+如果有一个模板 parent.xtpl： -->
+{{extend ("./parent")}}
+
+{{#block ("content")}}
+    test content
+{{/block}}
+</body>
+</html>

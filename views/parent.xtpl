@@ -1,0 +1,9 @@
+<!--
+ * @Author: Brightness
+ * @Date: 2021-04-22 14:18:51
+ * @LastEditors: Brightness
+ * @LastEditTime: 2021-04-22 14:20:18
+ * @Description:  
+-->
+<h1>parent</h1>
+{{{block ("content")}}}
