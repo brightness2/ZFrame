@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:18:31
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-20 12:04:55
+ * @LastEditTime: 2021-04-23 12:36:50
  * @Description:配置文件
  */
 const path = require("path");
@@ -26,6 +26,12 @@ const config = {
   //文件缓存
   fileCache: {
     dir: "runtime/cache",
+  },
+  //上传配置
+  upload: {
+    dir: "uploads",
+    size: 2, //2mb
+    allSize: 10, //10mb
   },
 };
 

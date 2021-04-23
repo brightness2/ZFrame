@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-22 17:50:59
+ * @LastEditTime: 2021-04-23 11:19:18
  * @Description:
  */
 const Router = require("koa-router");
@@ -16,6 +16,7 @@ const { Admin } = require("../../model/Admin");
 const Jwt = require("../../../core/jwt");
 const { logger, accessLogger } = require("../../../logger");
 const { FileCache } = require("../../../lib/FileCache");
+const { FileHelper } = require("../../../lib/FileHelper");
 
 const router = new Router();
 ///////////////////////
@@ -114,12 +115,25 @@ router.get("/test10", (ctx, next) => {
 });
 
 ///////////////////////////////
-//文件上传
+//文件上传 注意表单 form enctype="multipart/form-data"必须
 router.post("/test11", async (ctx, next) => {
-  // console.log(ctx.request.body);
-  let files = ctx.request.files;
-  console.log(files);
-  ctx.body = "ok";
+  let fileArr = ctx.request.files.file;
+  console.log(fileArr);
+  ctx.body = ctx.uploadPath;
+});
+
+/////////////////////////
+//文件复制,移动
+router.get("/test12", async (ctx, next) => {
+  FileHelper.copy(
+    config.dir.root + "/static/image/move2.jpg",
+    config.dir.root + "/uploads/20210423/2.jpg"
+  );
+  let rs = FileHelper.move(
+    config.dir.root + "/uploads/20210423/2.jpg",
+    config.dir.root + "/static/image/move3.jpg"
+  );
+  ctx.body = rs;
 });
 
 let arr = __dirname.split(config.pathSep);

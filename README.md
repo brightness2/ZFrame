@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-22 17:35:22
+ * @LastEditTime: 2021-04-23 12:32:10
  * @Description:
 -->
 
@@ -69,3 +69,8 @@ lib/FileCache.js
 ## koa-body 替换 koa-bodyparser
 
 koa-body 可以接收文件,
+
+## 文件上传
+
+利用 koa-body 中间件，相关配置查看 core/init.js
+文件复制，移动 lib/FileHelper.js
