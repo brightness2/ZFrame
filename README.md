@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 13:33:15
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-23 12:32:10
+ * @LastEditTime: 2021-04-25 16:40:05
  * @Description:
 -->
 
@@ -56,7 +56,11 @@ static
 
 index.js
 
-## 权限校验需要完善
+## 权限校验,使用 RBAC 模式
+
+middleware/Auth.js
+测试接口
+v1/rbac/testAuth
 
 ## 日志功能
 

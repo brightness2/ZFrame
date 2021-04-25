@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-19 15:03:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-19 15:47:01
+ * @LastEditTime: 2021-04-25 16:01:35
  * @Description: JWT 生成与解析
  */
 const jwt = require("jsonwebtoken");
@@ -12,10 +12,9 @@ class Jwt {
   /**
    * 生成token
    * @param {*} uid
-   * @param {*} scope
    * @returns
    */
-  static genToken(uid, scope) {
+  static genToken(uid) {
     const { secretKey, expiresIn, refreshIn } = global.config.security;
 
     //计算刷新token的时间戳
@@ -26,7 +25,7 @@ class Jwt {
       refreshTime = new Date().getTime() + refreshIn * 1000;
     }
 
-    let token = jwt.sign({ uid, scope, refreshTime }, secretKey, { expiresIn });
+    let token = jwt.sign({ uid, refreshTime }, secretKey, { expiresIn });
     return token;
   }
 

@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-23 11:19:18
+ * @LastEditTime: 2021-04-25 16:35:49
  * @Description:
  */
 const Router = require("koa-router");
@@ -11,7 +11,6 @@ const { AdminObj } = require("../../dbobj/dbobj");
 const { returnSuccess, returnData } = require("../../../lib/helper");
 const { basicAuthEncode } = require("../../../core/util");
 const { Auth } = require("../../../middleware/Auth");
-const apiLevel = require("../../../config/apiLevel");
 const { Admin } = require("../../model/Admin");
 const Jwt = require("../../../core/jwt");
 const { logger, accessLogger } = require("../../../logger");
@@ -19,6 +18,10 @@ const { FileCache } = require("../../../lib/FileCache");
 const { FileHelper } = require("../../../lib/FileHelper");
 
 const router = new Router();
+
+let arr = __dirname.split(config.pathSep);
+let version = arr[arr.length - 1] + "/";
+router.prefix = version + "testRun";
 ///////////////////////
 router.get("/test1/:t", (ctx, next) => {
   /**参数获取 */
@@ -66,7 +69,7 @@ router.get("/test3", async (ctx, next) => {
 });
 ////////////////////////////
 router.get("/test4", (ctx, next) => {
-  let token = Jwt.genToken(1, Auth.USER);
+  let token = Jwt.genToken(2);
   returnData(ctx, token);
 });
 ///////////////////////
@@ -76,7 +79,7 @@ router.get("/test5", new Auth().m, (ctx, next) => {
 });
 ///////////////////////////
 // 权限校验
-router.get("/test6", new Auth(apiLevel.admin).m, (ctx, next) => {
+router.get("/test6", new Auth().m, (ctx, next) => {
   ctx.body = "test6";
 });
 ///////////////
@@ -136,6 +139,4 @@ router.get("/test12", async (ctx, next) => {
   ctx.body = rs;
 });
 
-let arr = __dirname.split(config.pathSep);
-router.prefix = arr[arr.length - 1] + "/testRun";
 module.exports = router;
