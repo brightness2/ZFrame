@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:50:56
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-25 16:35:49
+ * @LastEditTime: 2021-04-25 17:08:42
  * @Description:
  */
 const Router = require("koa-router");
@@ -13,7 +13,7 @@ const { basicAuthEncode } = require("../../../core/util");
 const { Auth } = require("../../../middleware/Auth");
 const { Admin } = require("../../model/Admin");
 const Jwt = require("../../../core/jwt");
-const { logger, accessLogger } = require("../../../logger");
+const { logger, accessLogger } = require("../../../core/logger");
 const { FileCache } = require("../../../lib/FileCache");
 const { FileHelper } = require("../../../lib/FileHelper");
 

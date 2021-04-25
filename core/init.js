@@ -2,7 +2,7 @@
  * @Author: Brightness
  * @Date: 2021-04-09 15:11:10
  * @LastEditors: Brightness
- * @LastEditTime: 2021-04-23 11:39:23
+ * @LastEditTime: 2021-04-25 16:57:57
  * @Description: 初始化类
  */
 //引入依赖
@@ -11,14 +11,14 @@ const koaStatic = require("koa-static");
 const Router = require("koa-router");
 const requireDirectory = require("require-directory");
 const path = require("path");
-const { accessLogger } = require("../logger/index");
+const { accessLogger } = require("./logger");
 const {
   getUploadFileExt,
   getUploadDirName,
   checkDirExist,
   getUploadFileName,
 } = require("../core/util");
-const { logger } = require("../logger/index");
+const { logger } = require("./logger");
 /**
  * 初始化类
  */

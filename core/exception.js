@@ -6,7 +6,7 @@
  * @Description:异常中间件 捕获全局异常
  */
 const { BusinessError } = require("./HttpExceptions");
-const { logger } = require("../logger/index");
+const { logger } = require("./logger");
 const catchError = async (ctx, next) => {
   try {
     await next();
